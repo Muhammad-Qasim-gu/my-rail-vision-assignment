@@ -46,9 +46,9 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className="h-screen bg-cover bg-center relative"
-      style={{ backgroundImage: "url(/assets/train.jpg)" }}
-    >
+    className="h-screen bg-cover bg-center relative"
+    style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7iuGj64elgT7s705WjL8cYxOFTAxDLytIA&s')" }}
+  >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <ToastContainer position="top-right" autoClose={2000} hideProgressBar />
 
