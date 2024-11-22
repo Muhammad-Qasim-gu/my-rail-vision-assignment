@@ -9,8 +9,8 @@ const AboutUs: React.FC = () => {
       <Header />
       <div
         className="relative h-screen bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: "url('/assets/train1.png')" }}
-      >
+        style={{ backgroundImage: "url('https://www.tencom.com/hs-fs/hubfs/AdobeStock_564803106-1.jpeg?width=900&height=600&name=AdobeStock_564803106-1.jpeg')" }}
+        >
         <div className="absolute inset-0 bg-black opacity-50"></div>
 
         <div className="relative z-10 flex items-center justify-center h-full px-4">
