@@ -1,10 +1,11 @@
 const Ticket = require("../Models/TicketModel");
 
-const Train = require("../Models/trainSchema");
+const Train = require("../Models/trainSchema"); // Ensure the correct model is imported
 
 const createTicket = async (req, res) => {
   try {
     const {
+      userId,
       trainNumber,
       passengerName,
       contactNumber,
@@ -15,6 +16,7 @@ const createTicket = async (req, res) => {
     } = req.body;
 
     if (
+      !userId ||
       !trainNumber ||
       !passengerName ||
       !contactNumber ||
@@ -42,6 +44,7 @@ const createTicket = async (req, res) => {
     await train.save();
 
     const newTicket = new Ticket({
+      userId,
       trainNumber,
       passengerName,
       contactNumber,
@@ -64,11 +67,18 @@ const createTicket = async (req, res) => {
 
 const getAllTickets = async (req, res) => {
   try {
-    const tickets = await Ticket.find().sort({ createdAt: -1 });
+    const { userId } = req.params;
+
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required." });
+    }
+
+    const tickets = await Ticket.find({ userId }).sort({ createdAt: -1 });
     res.status(200).json(tickets);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to fetch tickets." });
   }
 };
+
 module.exports = { createTicket, getAllTickets };

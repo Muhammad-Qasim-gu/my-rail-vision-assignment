@@ -18,6 +18,33 @@ const LoginSchema = Yup.object().shape({
 const Login: React.FC = () => {
   const navigate = useNavigate();
 
+  // const handleSubmit = async (values: { email: string; password: string }) => {
+  //   try {
+  //     debugger;
+  //     const response = await fetch(loginText.loginApi, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(values),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
+
+  //     localStorage.setItem("isAuthenticated", "true");
+  //     toast.success(loginText.loginSuccess);
+
+  //     setTimeout(() => {
+  //       navigate("/home");
+  //     }, 1500);
+  //   } catch (error) {
+  //     console.error(loginText.errorDuringLogin, error);
+  //     toast.error(loginText.toasterError);
+  //   }
+  // };
+
   const handleSubmit = async (values: { email: string; password: string }) => {
     try {
       const response = await fetch(loginText.loginApi, {
@@ -27,28 +54,37 @@ const Login: React.FC = () => {
         },
         body: JSON.stringify(values),
       });
-
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
-      localStorage.setItem("isAuthenticated", "true");
-      toast.success(loginText.loginSuccess);
-
-      setTimeout(() => {
-        navigate("/home");
-      }, 1500);
+  
+      const data = await response.json();
+      if (data.success) {
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("userId", data.userId); 
+        toast.success(loginText.loginSuccess);
+  
+        setTimeout(() => {
+          navigate("/home");
+        }, 1500);
+      } else {
+        toast.error(data.message || loginText.toasterError);
+      }
     } catch (error) {
       console.error(loginText.errorDuringLogin, error);
       toast.error(loginText.toasterError);
     }
   };
-
+  
   return (
     <div
-    className="h-screen bg-cover bg-center relative"
-    style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7iuGj64elgT7s705WjL8cYxOFTAxDLytIA&s')" }}
-  >
+      className="h-screen bg-cover bg-center relative"
+      style={{
+        backgroundImage:
+          "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7iuGj64elgT7s705WjL8cYxOFTAxDLytIA&s')",
+      }}
+    >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <ToastContainer position="top-right" autoClose={2000} hideProgressBar />
 

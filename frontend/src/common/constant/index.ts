@@ -61,7 +61,7 @@ export const purchaseTicketText = {
 };
 
 export const ticketListText = {
-  ticketListLinik: "http://localhost:8082/api/tickets",
+  // ticketListLinik: `http://localhost:8082/api/tickets/${userId}`,
   failedToLoad: "Failed to load tickets. Please try again later.",
   setError: "An error occurred while fetching tickets.",
   failedDelete: "Failed to delete ticket. Please try again later.",

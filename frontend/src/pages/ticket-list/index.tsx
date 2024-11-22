@@ -11,6 +11,7 @@ interface Ticket {
   ticketCount: number;
   totalCost: number;
   createdAt: string;
+  userId: string;
 }
 
 const TicketList: React.FC = () => {
@@ -20,8 +21,17 @@ const TicketList: React.FC = () => {
 
   useEffect(() => {
     const fetchTickets = async () => {
+      const userId = localStorage.getItem("userId");
+      if (!userId) {
+        setError("User ID is missing. Please log in again.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const response = await fetch(ticketListText.ticketListLinik);
+        const response = await fetch(
+          `http://localhost:8082/api/tickets/${userId}`
+        );
         if (response.ok) {
           const data = await response.json();
           setTickets(data);
@@ -29,6 +39,7 @@ const TicketList: React.FC = () => {
           setError(ticketListText.failedToLoad);
         }
       } catch (error) {
+        console.error("Error fetching tickets:", error);
         setError(ticketListText.setError);
       } finally {
         setLoading(false);

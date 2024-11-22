@@ -8,7 +8,8 @@ const TicketSchema = new mongoose.Schema(
     ticketCount: { type: Number, required: true },
     totalCost: { type: Number, required: true },
     trainName: { type: String, required: true },
-    remainingSeats:{type:String,required:true}
+    remainingSeats:{type:String,required:true},
+    userId: { type: String, required: true },
   },
   { timestamps: true } 
 );

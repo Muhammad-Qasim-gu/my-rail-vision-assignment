@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
 
-    localStorage.removeItem("jwtToken");
+    // localStorage.removeItem("jwtToken");
 
     navigate(headerText.loginLink);
   };

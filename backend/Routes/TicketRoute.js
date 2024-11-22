@@ -7,6 +7,6 @@ const {
 
 router.post("/tickets", createTicket);
 
-router.get("/tickets", getAllTickets);
+router.get("/tickets/:userId", getAllTickets);
 
 module.exports = router;

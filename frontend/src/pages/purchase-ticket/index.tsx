@@ -55,15 +55,61 @@ const PurchaseTicket: React.FC = () => {
       .required("Ticket count is required."),
   });
 
+  // const handleFormSubmit = (values: {
+  //   passengerName: string;
+  //   contactNumber: string;
+  //   ticketCount: number;
+  // }) => {
+  //   fetch(purchaseTicketText.ticketDataApi, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       trainNumber: trainNumber,
+  //       passengerName: values.passengerName,
+  //       contactNumber: values.contactNumber,
+  //       ticketCount: values.ticketCount,
+  //       totalCost: values.ticketCount * ticketPrice,
+  //       remainingSeats: train.remainingSeats,
+  //       trainName: train.name,
+  //     }),
+  //   })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error(purchaseTicketText.failedToSave);
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(() => {
+  //       toast.success(purchaseTicketText.successfullyPurchase);
+  //       setTrain((prevTrain) => ({
+  //         ...prevTrain!,
+  //         remainingSeats: prevTrain!.remainingSeats - values.ticketCount,
+  //       }));
+  //     })
+  //     .catch((err) => {
+  //       toast.error(err.message);
+  //       console.error(err);
+  //     });
+  // };
+
+
+
   const handleFormSubmit = (values: {
     passengerName: string;
     contactNumber: string;
     ticketCount: number;
   }) => {
+    const userId = localStorage.getItem("userId"); // Get userId from localStorage
+    if (!userId) {
+      toast.error("User not authenticated.");
+      return;
+    }
+  
     fetch(purchaseTicketText.ticketDataApi, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        userId, 
         trainNumber: trainNumber,
         passengerName: values.passengerName,
         contactNumber: values.contactNumber,
@@ -91,7 +137,7 @@ const PurchaseTicket: React.FC = () => {
         console.error(err);
       });
   };
-
+  
   return (
     <>
       <Header />
