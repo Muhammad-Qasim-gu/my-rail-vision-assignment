@@ -18,32 +18,7 @@ const LoginSchema = Yup.object().shape({
 const Login: React.FC = () => {
   const navigate = useNavigate();
 
-  // const handleSubmit = async (values: { email: string; password: string }) => {
-  //   try {
-  //     debugger;
-  //     const response = await fetch(loginText.loginApi, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(values),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-
-  //     localStorage.setItem("isAuthenticated", "true");
-  //     toast.success(loginText.loginSuccess);
-
-  //     setTimeout(() => {
-  //       navigate("/home");
-  //     }, 1500);
-  //   } catch (error) {
-  //     console.error(loginText.errorDuringLogin, error);
-  //     toast.error(loginText.toasterError);
-  //   }
-  // };
+  
 
   const handleSubmit = async (values: { email: string; password: string }) => {
     try {

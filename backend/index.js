@@ -11,6 +11,10 @@ const trains = require("./Routes/TrainRoutes");
 const Train = require("../backend/Models/trainSchema"); 
 
 const PORT = process.env.PORT || 8082;
+app.use(cors({
+  origin: ['https://my-rail-vision-assignment-ccfx.vercel.app', 'http://localhost:3000'], 
+  credentials: true, 
+}));
 
 app.use(bodyParser.json());
 app.use(cors());
