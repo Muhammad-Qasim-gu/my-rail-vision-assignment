@@ -78,7 +78,7 @@ export const ticketListText = {
 };
 
 export const headerText = {
-  logo: "CHENNAI",
+  logo: "CHENNAI EXPRESS",
   homeLink: "/home",
   aboutLink: "/aboutUs",
   ticketListLink: "/TicketList",
