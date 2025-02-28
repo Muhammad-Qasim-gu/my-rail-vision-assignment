@@ -4,9 +4,8 @@ export const homeText = {
   error: "Error:",
   trainNumber: " Train Number:",
   viewDetail: " View Details",
-  // trainDataApi: "http://localhost:8082/api/trains",
-  trainDataApi: "https://my-rail-vision-assignment-backend.vercel.app/api/trains", // Updated
-
+  trainDataApi: "http://localhost:8082/api/trains",
+  
 };
 
 export const aboutUsText = {
@@ -46,9 +45,7 @@ export const trainDetailsText = {
 
 export const purchaseTicketText = {
   noTrainFound: "Train Data NOt Found",
-  // ticketDataApi: "http://localhost:8082/api/tickets",
-  ticketDataApi: "https://my-rail-vision-assignment-backend.vercel.app/api/tickets", // Updated
-
+  ticketDataApi: "http://localhost:8082/api/tickets",
   failedToSave: "Failed to save ticket to database",
   successfullyPurchase: "Ticket purchased successfully!",
   purchaseTicket: "Purchase Ticket for Train",
@@ -94,9 +91,7 @@ export const headerText = {
 };
 
 export const loginText = {
-  // loginApi: "http://localhost:8082/auth/login",\
-  loginApi: "https://my-rail-vision-assignment-backend.vercel.app/auth/login", // Updated
-
+  loginApi: "http://localhost:8082/auth/login",
   loginSuccess: "Login successful!",
   toasterError: "Failed to login. Please check your credentials.",
   errorDuringLogin: "Error during login:",
@@ -112,9 +107,7 @@ export const loginText = {
 };
 
 export const signUpText = {
-  // signUpLink: "http://localhost:8082/auth/signup",
-  signUpLink: "https://my-rail-vision-assignment-backend.vercel.app/auth/signup", // Updated
-
+  signUpLink: "http://localhost:8082/auth/signup",
   httpError: "HTTP error! status:",
   toasterSuccess: "Account created successfully! Redirecting to login...",
   toasterError: "Error creating account. Please try again.",
