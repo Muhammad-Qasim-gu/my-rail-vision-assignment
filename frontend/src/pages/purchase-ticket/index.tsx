@@ -21,7 +21,7 @@ const PurchaseTicket: React.FC = () => {
 
   useEffect(() => {
     if (trainNumber) {
-      fetch(`http://localhost:8082/api/trains?trainNumber=${trainNumber}`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/trains?trainNumber=${trainNumber}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch train data");

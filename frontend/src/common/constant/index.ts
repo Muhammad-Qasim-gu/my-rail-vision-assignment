@@ -4,7 +4,7 @@ export const homeText = {
   error: "Error:",
   trainNumber: " Train Number:",
   viewDetail: " View Details",
-  trainDataApi: "http://localhost:8082/api/trains",
+  trainDataApi: `${process.env.REACT_APP_BACKEND_URL}/api/trains `,
   
 };
 
@@ -45,7 +45,7 @@ export const trainDetailsText = {
 
 export const purchaseTicketText = {
   noTrainFound: "Train Data NOt Found",
-  ticketDataApi: "http://localhost:8082/api/tickets",
+  ticketDataApi: `${process.env.REACT_APP_BACKEND_URL}/api/tickets`,
   failedToSave: "Failed to save ticket to database",
   successfullyPurchase: "Ticket purchased successfully!",
   purchaseTicket: "Purchase Ticket for Train",
@@ -91,7 +91,9 @@ export const headerText = {
 };
 
 export const loginText = {
-  loginApi: "http://localhost:8082/auth/login",
+  loginApi: `${process.env.REACT_APP_BACKEND_URL}/auth/login`,
+
+
   loginSuccess: "Login successful!",
   toasterError: "Failed to login. Please check your credentials.",
   errorDuringLogin: "Error during login:",
@@ -107,7 +109,7 @@ export const loginText = {
 };
 
 export const signUpText = {
-  signUpLink: "http://localhost:8082/auth/signup",
+  signUpLink: `${process.env.REACT_APP_BACKEND_URL}/auth/signup`,
   httpError: "HTTP error! status:",
   toasterSuccess: "Account created successfully! Redirecting to login...",
   toasterError: "Error creating account. Please try again.",

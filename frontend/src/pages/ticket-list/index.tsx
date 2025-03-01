@@ -30,7 +30,7 @@ const TicketList: React.FC = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:8082/api/tickets/${userId}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/tickets/${userId}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -51,7 +51,7 @@ const TicketList: React.FC = () => {
 
   const deleteTicket = async (_id: string) => {
     try {
-      const response = await fetch(`http://localhost:8082/api/tickets/${_id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/tickets/${_id}`, {
         method: "DELETE",
       });
 

@@ -25,7 +25,7 @@ export const TrainDetails: React.FC = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:8082/api/trains?trainNumber=${trainNumber}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/trains?trainNumber=${trainNumber}`
         );
 
         if (!response.ok) {
